@@ -5,8 +5,6 @@ import static model.Constant.DEFAULT_TOP_TRACKS_LIMIT;
 import static model.Constant.LIMIT;
 import static model.Constant.MARKET;
 
-import model.enumeration.TimeRange;
-
 public final class Endpoints {
     public final static String BASE_URL = "https://api.spotify.com/v1";
     public final static String TOP_TRACKS_EP = "/me/top/tracks";
