@@ -61,8 +61,6 @@ import model.webservice_data.UserProfileDTO;
 @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 public class RecommendAPI {
     private final static Logger LOGGER = Logger.getLogger(RecommendAPI.class.getName());
-//    private final String BEARER = "BQB5fHBzjeMlsPORlHDr1GyIC3uQ8_VG-k6mSKk91_TdcPm99403AlrzCPT_hMPN7Zo8Hvvz384gSO8mmNLYZbCUGWuYGvJHVliJ0a6Va2Fz-gWg5_JFQE1WcwjtV011HJpAR17hhoi7dsbspSl5VxzgO4b_yTi5lDr6uYmDt-FI9LXQsDy_Bz8TRk0qV0jxIgO1Vm7cn15YLEKMFlOD_TsnlBf3Ty-9Mk3SIoNrhw";
-
     @GET
     @Path("recommendations/{token}")
     public RecommendationDTO getRecommendations(@PathParam("token") final String token) {
@@ -76,10 +74,8 @@ public class RecommendAPI {
 
         RecommendationDTO recs = new RecommendationDTO();
         for (String songId : songIdList) {
-            String uri = buildURIForRecommendations(songId.replace("[", "").replace("]", ""));
-
             Client client = ClientBuilder.newClient();
-            WebTarget recommendationsTarget = client.target(uri);
+            WebTarget recommendationsTarget = client.target(buildURIForRecommendations(songId.replace("[", "").replace("]", "")));
 
             Response response = recommendationsTarget.request(MediaType.APPLICATION_JSON)
                     .header("Authorization", "Bearer " + token)
