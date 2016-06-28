@@ -14,6 +14,8 @@ public final class Endpoints {
     public final static String CREATE_PLAYLIST_EP = "/users/{userId}/playlists";
     public final static String REPLACE_SONGS_IN_PLAYLIST_EP = "/users/{userId}/playlists/{playlistId}/tracks";
     public final static String ADD_SONGS_IN_PLAYLIST_EP = "/users/{userId}/playlists/{playlistId}/tracks";
+    public final static String REQUEST_TOKEN_EP = "https://accounts.spotify.com/api/token";
+    public final static String REQUEST_USER_PROFILE = "https://api.spotify.com/v1/me/";
 
     private Endpoints() {}
 
@@ -43,5 +45,13 @@ public final class Endpoints {
     
     public static String buildURIToAddNewSongs(String userId, String playlistId) {
         return BASE_URL + ADD_SONGS_IN_PLAYLIST_EP.replace("{userId}", userId).replace("{playlistId}", playlistId);
+    }
+    
+    public static String buildURIToRequestToken() {
+        return REQUEST_TOKEN_EP;
+    }
+
+    public static String buildURIToRequestUserProfileName() {
+        return REQUEST_USER_PROFILE;
     }
 }
