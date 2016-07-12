@@ -3,8 +3,6 @@ Creates a playlist with more than 200 songs in your Spotify account based on the
 
 Developed with Jersey.
 
-Working version [here](http://www.spotifyrecommender.xyz/)
-
 ## License
 ```
   Copyright 2016 Marc Pratllusà
